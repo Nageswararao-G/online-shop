@@ -14,6 +14,7 @@
     http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 
 	<context:component-scan base-package="net.online.onlineshop"/>
+	<context:component-scan base-package="net.backend.shopbackend"/>
 
 	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

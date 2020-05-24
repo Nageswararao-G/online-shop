@@ -16,12 +16,13 @@
 
 	<dependencies>
 
-<!-- 		<dependency>
+       <!-- Link backend project -->
+ 		<dependency>
 			<groupId>net.backend</groupId>
 			<artifactId>shopbackend</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
- -->
+ 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
