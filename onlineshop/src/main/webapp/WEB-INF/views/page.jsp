@@ -19,22 +19,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 
 <title>Online shop - ${title}</title>
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
+<!-- Bootstrap readable theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Bootstrap data table CSS -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
 
-<!-- Bootstrap readable theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,21 +79,46 @@
 			<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+				<!-- Loading only when the user click on show single product -->
+			<c:if test="${userClickShowProduct==true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
+							<!-- Loading only when the user click on manage products -->
+			<c:if test="${userClickManageProducts==true}">
+				<%@include file="manageProduct.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickShowCart==true}">
+				<%@include file="cart.jsp"%>
+			</c:if>
+			
 		</div>
 		
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 
-
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
 
+		<script src="${js}/jquery.validate.js"></script>
+ 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- Data table plugin -->
+        <script src="${js}/jquery.dataTables.js"></script>
 
+		<!-- Data table bootstrap plugin -->
+        <script src="${js}/dataTables.bootstrap.js"></script>
+
+		
+		<script src="${js}/bootbox.min.js"></script>
+		
 		<!-- self coded JavaScript -->
 		<script src="${js}/myapp.js"></script>
-
+        
 	</div>
 </body>
 
